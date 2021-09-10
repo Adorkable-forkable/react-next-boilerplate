@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'utils/with-i18next';
+import Link from 'next/link';
 import styled from '@emotion/styled';
 
 const ItemLink = styled.a`

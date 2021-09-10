@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styled from '@emotion/styled';
 
-import { withTranslation } from 'utils/with-i18next';
+import { useTranslation } from 'react-i18next';
 
 const Container = styled('div')`
   width: 100%;
@@ -47,7 +47,8 @@ const Content = styled('p')`
   font-weight: 400;
 `;
 
-export function Features({ t }) {
+export function Features() {
+  const { t } = useTranslation('features');
   return (
     <Container id="features">
       <FeaturesRoot>
@@ -123,4 +124,4 @@ Features.propTypes = {
   t: PropTypes.func,
 };
 
-export default withTranslation('features')(Features);
+export default Features;

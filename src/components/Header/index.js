@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styled from '@emotion/styled';
 
-import { withTranslation } from 'utils/with-i18next';
+import { useTranslation } from 'react-i18next';
 
 import SelectLanguages from './SelectLanguages';
 import CustomLink from './CustomLink';
@@ -45,7 +45,9 @@ const Space = styled('div')`
   flex: 1 1 auto;
 `;
 
-export function Header({ t }) {
+export function Header() {
+  const { t } = useTranslation('common');
+
   return (
     <HeaderRoot>
       <HeaderContainer>
@@ -70,4 +72,4 @@ Header.propTypes = {
   t: PropTypes.func,
 };
 
-export default withTranslation('common')(Header);
+export default Header;

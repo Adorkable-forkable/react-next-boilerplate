@@ -1,3 +1,3 @@
-import { Link, Router, i18n, withTranslation, appWithTranslation } from '../../i18n';
+import { appWithTranslation } from 'next-i18next';
 
-export { Link, Router, i18n, withTranslation, appWithTranslation };
+export { appWithTranslation };

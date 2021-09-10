@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styled from '@emotion/styled';
 
-import { i18n } from 'utils/with-i18next';
+import i18next from 'i18next';
 
 const SelectRoot = styled('select')`
   border-radius: 4px;
@@ -13,10 +13,13 @@ const SelectRoot = styled('select')`
 `;
 
 export function SelectLanguages({ t }) {
-  const [select, setSelect] = useState(i18n.language);
+  i18next.init({
+    fallbackLng: ['en', 'dev'],
+  });
+  const [select, setSelect] = useState(i18next.language || 'en');
 
   useEffect(() => {
-    i18n.changeLanguage(select);
+    i18next.changeLanguage(select);
   }, [select]);
 
   const handleSelect = ev => {

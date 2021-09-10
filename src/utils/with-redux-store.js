@@ -5,7 +5,7 @@ import configureStore from './configure-store';
 const isServer = typeof window === 'undefined';
 const __NEXT_REDUX_STORE__ = '__NEXT_REDUX_STORE__';
 
-function getOrCreateStore(initialState) {
+const getOrCreateStore = initialState => {
   if (isServer) {
     return configureStore(initialState);
   }
@@ -14,7 +14,7 @@ function getOrCreateStore(initialState) {
     window[__NEXT_REDUX_STORE__] = configureStore(initialState);
   }
   return window[__NEXT_REDUX_STORE__];
-}
+};
 
 const AppWrapper = App => {
   return class Redux extends React.Component {

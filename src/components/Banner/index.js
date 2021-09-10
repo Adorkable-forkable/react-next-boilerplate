@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styled from '@emotion/styled';
 
-import { withTranslation } from 'utils/with-i18next';
+import { useTranslation } from 'react-i18next';
 
 const BannerRoot = styled('div')`
   display: flex;
@@ -27,7 +27,10 @@ const Logo = styled('img')`
   width: 110px;
 `;
 
-export function Banner({ t }) {
+export function Banner() {
+  const { t } = useTranslation('banner');
+  console.log(t, t('title'));
+
   return (
     <BannerRoot>
       <Logo src="/static/images/reac-next-boilerplate-logo.svg" alt="react-next-boilerplate" />
@@ -43,4 +46,4 @@ Banner.propTypes = {
   t: PropTypes.func,
 };
 
-export default withTranslation('banner')(Banner);
+export default Banner;

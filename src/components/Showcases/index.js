@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 import styled from '@emotion/styled';
 
-import { withTranslation } from 'utils/with-i18next';
 import Spiner from 'components/Spiner';
+
+import { useTranslation } from 'react-i18next';
 
 const Container = styled('div')`
   width: 100%;
@@ -66,7 +67,8 @@ const LinkShoucase = styled('a')`
 `;
 
 export function Showcases(props) {
-  const { data, onGetShowcases, t } = props;
+  const { data, onGetShowcases } = props;
+  const { t } = useTranslation('common');
 
   const { loading, fetched, showcases } = data;
 
@@ -109,4 +111,4 @@ Showcases.propTypes = {
   onGetShowcases: PropTypes.func,
 };
 
-export default withTranslation('common')(Showcases);
+export default Showcases;
